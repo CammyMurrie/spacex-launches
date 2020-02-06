@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { media } from '../mediaQueries';
-
 export const Button = styled.button`
   display: flex;
   align-items: center;
