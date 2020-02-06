@@ -1,17 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import { ButtonWithIcon } from './Button';
-import logo from '../assets/spacex-logo.png';
-import reload from '../assets/icon/refresh.png';
-import { media } from '../mediaQueries';
+import { ButtonWithIcon } from "./Button";
+import logo from "../assets/spacex-logo.png";
+import reload from "../assets/icon/refresh.png";
+import { media } from "../mediaQueries";
 
 const HeaderWrapper = styled.div`
-  display: flex;  
+  display: flex;
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  margin-bottom: 30px;
   @media ${media.mobileL} {
     align-items: flex-end;
   }
@@ -43,6 +44,10 @@ export const Header = () => (
       <BrandLogo src={logo} alt="spacex-brand-logo" />
       <BrandLogoText>launches</BrandLogoText>
     </BrandLogoWrapper>
-    <ButtonWithIcon icon={reload} borderRadius="20px 0 0 20px">reload data</ButtonWithIcon>
+    <div>
+      <ButtonWithIcon icon={reload} borderRadius="20px 0 0 20px">
+        reload data
+      </ButtonWithIcon>
+    </div>
   </HeaderWrapper>
 );
