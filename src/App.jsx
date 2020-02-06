@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import { Header } from './components/Header';
 import { theme } from './theme';
+import { Content } from './components/Content';
 
 const App = styled.div`
   font-family: ${theme.fontFamily};
@@ -15,6 +16,7 @@ function Application() {
     <App>
       <ThemeProvider theme={theme}>
       <Header />
+      <Content />
       </ThemeProvider>
     </App>
   );
