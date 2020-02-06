@@ -9,16 +9,30 @@ const HeaderWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+`;
+
+const BrandLogoWrapper = styled.div`
+  display: flex;
+  align-items: baseline;
 `;
 
 const BrandLogo = styled.img`
   max-width: 200px;
-  height: auto;
+`;
+
+const BrandLogoText = styled.span`
+  text-transform: uppercase;
+  color: ${props => props.theme.fontColour};
+  margin-left: -20px;
 `;
 
 export const Header = () => (
   <HeaderWrapper>
-    <BrandLogo src={logo} alt="spacex-brand-logo" />
-    <ButtonWithIcon icon={reload}>click me</ButtonWithIcon>
+    <BrandLogoWrapper>
+      <BrandLogo src={logo} alt="spacex-brand-logo" />
+      <BrandLogoText>launches</BrandLogoText>
+    </BrandLogoWrapper>
+    <ButtonWithIcon icon={reload}>reload data</ButtonWithIcon>
   </HeaderWrapper>
 );

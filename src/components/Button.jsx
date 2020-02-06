@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = styled.button`
+export const Button = styled.button`
   display: flex;
   align-items: center;
   background-color: ${props => props.theme.primaryBlue};
@@ -9,17 +9,19 @@ const Button = styled.button`
   font-family: ${props => props.theme.fontFamily};
   border: 0;
   border-radius: 20px 0 0 20px;
-  height: 30px;
+  padding: 10px;
+  cursor: pointer;
+  text-transform: capitalize;
 `;
 
 const Icon = styled.img`
-  padding: 0 5px;
+  padding-left: 5px;
   width: 10px;
 `;
 
-export function ButtonWithIcon({ icon, children }) {
+export function ButtonWithIcon({ onClick, icon, children }) {
   return (
-    <Button>
+    <Button onClick={onClick}>
       <span>{children}</span>
       <Icon src={icon} alt="" />
     </Button>
