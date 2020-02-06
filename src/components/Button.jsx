@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { media } from '../mediaQueries';
+
 export const Button = styled.button`
   display: flex;
   align-items: center;
@@ -8,10 +10,11 @@ export const Button = styled.button`
   color: #FFFFFF;
   font-family: ${props => props.theme.fontFamily};
   border: 0;
-  border-radius: 20px 0 0 20px;
   padding: 10px;
   cursor: pointer;
   text-transform: capitalize;
+
+  ${props => props.borderRadius && `border-radius: ${props.borderRadius}`};
 `;
 
 const Icon = styled.img`
@@ -19,9 +22,12 @@ const Icon = styled.img`
   width: 10px;
 `;
 
-export function ButtonWithIcon({ onClick, icon, children }) {
+export function ButtonWithIcon({ onClick, icon, children, borderRadius }) {
   return (
-    <Button onClick={onClick}>
+    <Button
+      onClick={onClick}
+      borderRadius={borderRadius}
+    >
       <span>{children}</span>
       <Icon src={icon} alt="" />
     </Button>
