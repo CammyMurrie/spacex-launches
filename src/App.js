@@ -1,11 +1,23 @@
 import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 
-function App() {
+import { Header } from './components/Header';
+import { theme } from './theme';
+
+const App = styled.div`
+  font-family: ${theme.fontFamily};
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+function Application() {
   return (
-    <div>
-      lets do a thing
-    </div>
+    <App>
+      <ThemeProvider theme={theme}>
+      <Header />
+      </ThemeProvider>
+    </App>
   );
 }
 
-export default App;
+export default Application;
