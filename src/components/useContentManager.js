@@ -1,16 +1,18 @@
 import { useState, useEffect, useCallback } from "react";
-import { spacexUrl } from "../api";
+import { spacexUrl } from "../api/api";
 
 export function useContentManager() {
   const [selectedFilter, setFilter] = useState();
   const [applySorting, setSorting] = useState(false);
   const [listOfLaunches, setListOfLaunches] = useState([]);
 
-  const fetchLaunches = useCallback(async () => {
-    await fetch(spacexUrl).then(res =>
-      res.json().then(data => setListOfLaunches(transform(data)))
-    );
-  }, []);
+  const loadData = async () => {
+    await fetch(spacexUrl)
+      .then(res => res.json())
+      .then(data => setListOfLaunches(transform(data)))
+    };
+
+  const fetchLaunches = useCallback(loadData, []);
 
   useEffect(() => {
     fetchLaunches();
@@ -45,6 +47,7 @@ export function useContentManager() {
     selectedFilter,
     setFilter,
     applySorting,
-    setSorting
+    setSorting,
+    loadData,
   };
 }

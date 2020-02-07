@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
+import { AppContext } from "../context/appContext";
 import { ItemRow } from "./ItemRow";
 import { ButtonWithIcon } from "./Button";
 import launch from "../assets/img/launch-home.png";
 import sort from "../assets/icon/sort.png";
 import { media } from "../mediaQueries";
 import { FilterDropdown } from "./FilterDropdown";
-import { useContentManager } from "./useContentManager";
 
+const Wrapper = styled.div`
+  max-width: 1024px;
+  margin: 0 auto;
+`;
 const ActionsWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 0 20px;
   @media ${media.mobileL} {
-    padding: 0 20px;
+    padding: 0 40px;
   }
 `;
 const ContentWrapper = styled.div`
@@ -26,6 +30,7 @@ const ContentWrapper = styled.div`
 const Image = styled.div`
   display: none;
   @media ${media.tablet} {
+    margin-left: 20px;
     height: 550px;
     width: 800px;
     display: block;
@@ -52,9 +57,9 @@ export const Content = () => {
     setFilter,
     applySorting,
     setSorting
-  } = useContentManager();
+  } = useContext(AppContext);
   return (
-    <>
+    <Wrapper>
       <ActionsWrapper>
         <FilterDropdown
           selectedFilter={selectedFilter}
@@ -73,12 +78,12 @@ export const Content = () => {
               key={l.flightNumber}
               missionName={l.missionName}
               rocketName={l.rocketName}
-              count={l.flightNumber}
+              number={l.flightNumber}
               launchDate={l.launchDate.toDateString()}
             />
           ))}
         </Launches>
       </ContentWrapper>
-    </>
+    </Wrapper>
   );
 };

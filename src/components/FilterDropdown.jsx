@@ -5,7 +5,6 @@ import { ButtonWithIcon } from "./Button";
 import select from "../assets/icon/select.png";
 
 const FilterDropdownWrapper = styled.div`
-  width: 150px;
   margin: 0 10px;
   position: relative;
 `;

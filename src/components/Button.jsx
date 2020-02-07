@@ -22,7 +22,7 @@ export const Button = styled.button`
 `;
 
 const Icon = styled.img`
-  padding-left: 5px;
+  padding-left: 15px;
   width: 10px;
 `;
 

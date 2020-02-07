@@ -2,6 +2,10 @@ $primary-blue: #215184;
 $font-color: #545454;
 $font-family: 'Brandon Grotesque', Arial, Helvetica, sans-serif;
 
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
 @font-face {
   font-family: 'Brandon Grotesque';
   src: url('assets/font/BrandonGrotesque-Bold.woff2') format('woff2'),
@@ -46,4 +50,3 @@ $font-family: 'Brandon Grotesque', Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-style: normal;
 }
-

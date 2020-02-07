@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
+import { AppContext } from "../context/appContext";
 import { ButtonWithIcon } from "./Button";
 import logo from "../assets/spacex-logo.png";
 import reload from "../assets/icon/refresh.png";
@@ -12,7 +13,7 @@ const HeaderWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 30px;
+  margin: 15px 0;
   @media ${media.mobileL} {
     align-items: flex-end;
   }
@@ -20,6 +21,7 @@ const HeaderWrapper = styled.div`
 
 const BrandLogoWrapper = styled.div`
   display: block;
+  padding-left: 20px;
   @media ${media.mobileL} {
     display: flex;
     align-items: baseline;
@@ -27,10 +29,11 @@ const BrandLogoWrapper = styled.div`
 `;
 
 const BrandLogo = styled.img`
-  max-width: 200px;
+  max-width: 170px;
 `;
 
 const BrandLogoText = styled.div`
+  font-size: 18px;
   text-transform: uppercase;
   color: ${props => props.theme.fontColour};
   @media ${media.mobileL} {
@@ -38,16 +41,23 @@ const BrandLogoText = styled.div`
   }
 `;
 
-export const Header = () => (
-  <HeaderWrapper>
-    <BrandLogoWrapper>
-      <BrandLogo src={logo} alt="spacex-brand-logo" />
-      <BrandLogoText>launches</BrandLogoText>
-    </BrandLogoWrapper>
-    <div>
-      <ButtonWithIcon icon={reload} borderRadius="20px 0 0 20px">
-        reload data
-      </ButtonWithIcon>
-    </div>
-  </HeaderWrapper>
-);
+export const Header = () => {
+  const { loadData } = useContext(AppContext);
+  return (
+    <HeaderWrapper>
+      <BrandLogoWrapper>
+        <BrandLogo src={logo} alt="spacex-brand-logo" />
+        <BrandLogoText>launches</BrandLogoText>
+      </BrandLogoWrapper>
+      <div>
+        <ButtonWithIcon
+          onClick={() => loadData()}
+          icon={reload}
+          borderRadius="20px 0 0 20px"
+        >
+          reload data
+        </ButtonWithIcon>
+      </div>
+    </HeaderWrapper>
+  );
+};

@@ -1,22 +1,25 @@
-import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import React from "react";
+import styled, { ThemeProvider } from "styled-components";
 
-import { Header } from './components/Header';
-import { theme } from './theme';
-import { Content } from './components/Content';
+import { AppContext } from "./context/appContext";
+import { Header } from "./components/Header";
+import { theme } from "./theme";
+import { Content } from "./components/Content";
+import { useContentManager } from './components/useContentManager';
 
 const App = styled.div`
   font-family: ${theme.fontFamily};
-  max-width: 1024px;
-  margin: 0 auto;
 `;
 
 function Application() {
+  const content = useContentManager();
   return (
     <App>
       <ThemeProvider theme={theme}>
-      <Header />
-      <Content />
+        <AppContext.Provider value={content}>
+          <Header />
+          <Content />
+        </AppContext.Provider>
       </ThemeProvider>
     </App>
   );
