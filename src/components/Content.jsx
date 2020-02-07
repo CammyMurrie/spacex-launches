@@ -30,6 +30,7 @@ const ContentWrapper = styled.div`
 const Image = styled.div`
   display: none;
   @media ${media.tablet} {
+    margin-left: 20px;
     height: 550px;
     width: 800px;
     display: block;
