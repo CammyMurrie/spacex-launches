@@ -7,7 +7,7 @@ import { Content } from './components/Content';
 
 const App = styled.div`
   font-family: ${theme.fontFamily};
-  max-width: 1200px;
+  max-width: 1024px;
   margin: 0 auto;
 `;
 

@@ -12,7 +12,10 @@ import { useContentManager } from "./useContentManager";
 const ActionsWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 0 40px;
+  padding: 0 20px;
+  @media ${media.mobileL} {
+    padding: 0 20px;
+  }
 `;
 const ContentWrapper = styled.div`
   width: 100%;
@@ -20,18 +23,25 @@ const ContentWrapper = styled.div`
   padding: 10px 0;
 `;
 
-const Image = styled.img`
+const Image = styled.div`
   display: none;
   @media ${media.tablet} {
-    max-width: 40%;
-    height: auto;
+    height: 550px;
+    width: 800px;
     display: block;
+    background-image: url(${props => props.url});
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 `;
 
 const Launches = styled.div`
   width: 100%;
-  padding: 0 40px;
+  padding: 0 20px;
+  @media ${media.mobileL} {
+    padding: 0 40px;
+  }  
 `;
 
 export const Content = () => {
@@ -56,7 +66,7 @@ export const Content = () => {
         </ButtonWithIcon>
       </ActionsWrapper>
       <ContentWrapper>
-        <Image src={launch} />
+        <Image url={launch} role="img" aria-label="rocket launch image" />
         <Launches>
           {listOfLaunches.map((l, index) => (
             <ItemRow
