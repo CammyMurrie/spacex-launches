@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const ItemRowWrapper = styled.div`
-  height: 50px;
+  min-height: 50px;
   background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 0 1px 2px #999999;
@@ -13,26 +13,31 @@ const ItemRowWrapper = styled.div`
   margin-bottom: 10px;
 `;
 
+const NumberTitle = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const Column = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 `;
-const Span = styled.span`
+const Span = styled.div`
   color: ${props => props.theme.fontColour};
   font-weight: ${props => props.weight || "bold"};
   font-size: ${props => `${props.size}px` || "12px"};
   ${props => props.extraStyles && props.extraStyles};
 `;
 
-export const ItemRow = ({ count, missionName, launchDate, rocketName }) => (
+export const ItemRow = ({ number, missionName, launchDate, rocketName }) => (
   <ItemRowWrapper>
-    <div>
-      <Span size={22}>{`#${count}`}</Span>
-      <Span size={18} extraStyles={`padding-left: 20px;`}>
+    <NumberTitle>
+      <Span size={22}>{`#${number}`}</Span>
+      <Span size={18} extraStyles={`padding-left: 20px; text-align: right;`}>
         {missionName}
       </Span>
-    </div>
+    </NumberTitle>
     <Column>
       <Span weight="normal" size={12}>
         {launchDate}

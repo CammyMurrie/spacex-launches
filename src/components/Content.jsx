@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
+import { AppContext } from "../context/appContext";
 import { ItemRow } from "./ItemRow";
 import { ButtonWithIcon } from "./Button";
 import launch from "../assets/img/launch-home.png";
 import sort from "../assets/icon/sort.png";
 import { media } from "../mediaQueries";
 import { FilterDropdown } from "./FilterDropdown";
-import { useContentManager } from "./useContentManager";
 
 const ActionsWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 0 20px;
   @media ${media.mobileL} {
-    padding: 0 20px;
+    padding: 0 40px;
   }
 `;
 const ContentWrapper = styled.div`
@@ -52,7 +52,7 @@ export const Content = () => {
     setFilter,
     applySorting,
     setSorting
-  } = useContentManager();
+  } = useContext(AppContext);
   return (
     <>
       <ActionsWrapper>
@@ -73,7 +73,7 @@ export const Content = () => {
               key={l.flightNumber}
               missionName={l.missionName}
               rocketName={l.rocketName}
-              count={l.flightNumber}
+              number={l.flightNumber}
               launchDate={l.launchDate.toDateString()}
             />
           ))}

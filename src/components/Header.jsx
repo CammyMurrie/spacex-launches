@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
+import { AppContext } from "../context/appContext";
 import { ButtonWithIcon } from "./Button";
 import logo from "../assets/spacex-logo.png";
 import reload from "../assets/icon/refresh.png";
@@ -38,16 +39,23 @@ const BrandLogoText = styled.div`
   }
 `;
 
-export const Header = () => (
-  <HeaderWrapper>
-    <BrandLogoWrapper>
-      <BrandLogo src={logo} alt="spacex-brand-logo" />
-      <BrandLogoText>launches</BrandLogoText>
-    </BrandLogoWrapper>
-    <div>
-      <ButtonWithIcon icon={reload} borderRadius="20px 0 0 20px">
-        reload data
-      </ButtonWithIcon>
-    </div>
-  </HeaderWrapper>
-);
+export const Header = () => {
+  const { loadData } = useContext(AppContext);
+  return (
+    <HeaderWrapper>
+      <BrandLogoWrapper>
+        <BrandLogo src={logo} alt="spacex-brand-logo" />
+        <BrandLogoText>launches</BrandLogoText>
+      </BrandLogoWrapper>
+      <div>
+        <ButtonWithIcon
+          onClick={() => loadData()}
+          icon={reload}
+          borderRadius="20px 0 0 20px"
+        >
+          reload data
+        </ButtonWithIcon>
+      </div>
+    </HeaderWrapper>
+  );
+};
