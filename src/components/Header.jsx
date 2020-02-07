@@ -13,7 +13,7 @@ const HeaderWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 30px;
+  margin: 15px 0;
   @media ${media.mobileL} {
     align-items: flex-end;
   }
@@ -21,6 +21,7 @@ const HeaderWrapper = styled.div`
 
 const BrandLogoWrapper = styled.div`
   display: block;
+  padding-left: 20px;
   @media ${media.mobileL} {
     display: flex;
     align-items: baseline;
@@ -28,10 +29,11 @@ const BrandLogoWrapper = styled.div`
 `;
 
 const BrandLogo = styled.img`
-  max-width: 200px;
+  max-width: 170px;
 `;
 
 const BrandLogoText = styled.div`
+  font-size: 18px;
   text-transform: uppercase;
   color: ${props => props.theme.fontColour};
   @media ${media.mobileL} {

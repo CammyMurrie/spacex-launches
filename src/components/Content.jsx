@@ -9,6 +9,10 @@ import sort from "../assets/icon/sort.png";
 import { media } from "../mediaQueries";
 import { FilterDropdown } from "./FilterDropdown";
 
+const Wrapper = styled.div`
+  max-width: 1024px;
+  margin: 0 auto;
+`;
 const ActionsWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -54,7 +58,7 @@ export const Content = () => {
     setSorting
   } = useContext(AppContext);
   return (
-    <>
+    <Wrapper>
       <ActionsWrapper>
         <FilterDropdown
           selectedFilter={selectedFilter}
@@ -79,6 +83,6 @@ export const Content = () => {
           ))}
         </Launches>
       </ContentWrapper>
-    </>
+    </Wrapper>
   );
 };

@@ -9,8 +9,6 @@ import { useContentManager } from './components/useContentManager';
 
 const App = styled.div`
   font-family: ${theme.fontFamily};
-  max-width: 1024px;
-  margin: 0 auto;
 `;
 
 function Application() {
