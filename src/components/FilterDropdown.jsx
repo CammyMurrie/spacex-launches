@@ -25,7 +25,8 @@ const Option = styled.div`
     background-color: ${props => props.theme.primaryBlue};
   }
 `;
-
+// this component is not optimised for screen readers
+// options in custom dropdown are currently not focusable
 export const FilterDropdown = ({ selectedFilter, options, setFilter }) => {
   const [open, setOpen] = useState(false);
   return (
@@ -41,17 +42,13 @@ export const FilterDropdown = ({ selectedFilter, options, setFilter }) => {
         <Options>
           <Option
             key="option_1_none_selected"
-            tabIndex={0}
             role="button"
             onMouseDown={() => setFilter(null)}
-          >View All</Option>
+          >
+            View All
+          </Option>
           {options.map(o => (
-            <Option
-              key={o}
-              tabIndex={0}
-              role="button"
-              onMouseDown={() => setFilter(o)}
-            >
+            <Option key={o} role="button" onMouseDown={() => setFilter(o)}>
               {o}
             </Option>
           ))}

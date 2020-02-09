@@ -1,3 +1,10 @@
+## General App comments/improvements
+- As app grows, change the scope that AppContext is being applied to.
+- Optimise for screen readers i.e. focusable options on custom dropdown, key press event listeners etc
+- improve image quality by making use of the higher res. assets provided through source tags or media queries and background images.
+- Improve testing coverage where applicable.
+
+
 # Tech Test
 
 Your task is to create a React application that will consume data from the SpaceX public API. The application must retrieve historic and future SpaceX launches and present them in a list view. 

@@ -5,7 +5,7 @@ import { AppContext } from "../context/appContext";
 import { ButtonWithIcon } from "./Button";
 import logo from "../assets/spacex-logo.png";
 import reload from "../assets/icon/refresh.png";
-import { media } from "../mediaQueries";
+import { media } from "../utilities/mediaQueries";
 
 const HeaderWrapper = styled.div`
   display: flex;

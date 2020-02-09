@@ -9,7 +9,7 @@ import { FilterDropdown } from "./FilterDropdown";
 
 import launch from "../assets/img/launch-home.png";
 import sort from "../assets/icon/sort.png";
-import { media } from "../mediaQueries";
+import { media } from "../utilities/mediaQueries";
 import { AppContext } from "../context/appContext";
 
 const Wrapper = styled.div`
