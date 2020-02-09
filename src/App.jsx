@@ -5,7 +5,7 @@ import { AppContext } from "./context/appContext";
 import { Header } from "./components/Header";
 import { theme } from "./theme";
 import { Content } from "./components/Content";
-import { useContentManager } from './components/useContentManager';
+import { useContentManager } from './hooks/useContentManager';
 
 const App = styled.div`
   font-family: ${theme.fontFamily};

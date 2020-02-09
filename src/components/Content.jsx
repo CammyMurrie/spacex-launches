@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
-import { AppContext } from "../context/appContext";
 import { ItemRow } from "./ItemRow";
 import { ButtonWithIcon } from "./Button";
+import { FilterDropdown } from "./FilterDropdown";
+
 import launch from "../assets/img/launch-home.png";
 import sort from "../assets/icon/sort.png";
 import { media } from "../mediaQueries";
-import { FilterDropdown } from "./FilterDropdown";
+import { AppContext } from "../context/appContext";
 
 const Wrapper = styled.div`
   max-width: 1024px;
@@ -46,7 +49,15 @@ const Launches = styled.div`
   padding: 0 20px;
   @media ${media.mobileL} {
     padding: 0 40px;
-  }  
+  }
+`;
+
+const StyledLoader = styled(Loader)`
+  display: flex;
+  justify-content: center;
+  svg {
+    fill: ${props => props.theme.primaryBlue};
+  }
 `;
 
 export const Content = () => {
@@ -73,15 +84,23 @@ export const Content = () => {
       <ContentWrapper>
         <Image url={launch} role="img" aria-label="rocket launch image" />
         <Launches>
-          {listOfLaunches.map((l, index) => (
-            <ItemRow
-              key={l.flightNumber}
-              missionName={l.missionName}
-              rocketName={l.rocketName}
-              number={l.flightNumber}
-              launchDate={l.launchDate.toDateString()}
+          {listOfLaunches.length > 0 ? (
+            listOfLaunches.map((l, index) => (
+              <ItemRow
+                key={l.flightNumber}
+                missionName={l.missionName}
+                rocketName={l.rocketName}
+                number={l.flightNumber}
+                launchDate={l.launchDate.toDateString()}
+              />
+            ))
+          ) : (
+            <StyledLoader
+              type="MutatingDots"
+              height={100}
+              width={100}
             />
-          ))}
+          )}
         </Launches>
       </ContentWrapper>
     </Wrapper>
