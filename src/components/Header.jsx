@@ -51,9 +51,10 @@ export const Header = () => {
       </BrandLogoWrapper>
       <div>
         <ButtonWithIcon
-          onClick={() => loadData()}
+          onClick={loadData}
           icon={reload}
           borderRadius="20px 0 0 20px"
+          testId="data-reload"
         >
           reload data
         </ButtonWithIcon>
