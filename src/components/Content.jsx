@@ -77,13 +77,13 @@ export const Content = () => {
           setFilter={setFilter}
           options={filterOptions}
         />
-        <ButtonWithIcon icon={sort} onClick={() => setSorting(!applySorting)}>
+        <ButtonWithIcon testId="sort" icon={sort} onClick={() => setSorting(!applySorting)}>
           {applySorting ? "sort descending" : "sort ascending"}
         </ButtonWithIcon>
       </ActionsWrapper>
       <ContentWrapper>
         <Image url={launch} role="img" aria-label="rocket launch image" />
-        <Launches>
+        <Launches data-testid="launches">
           {listOfLaunches.length > 0 ? (
             listOfLaunches.map((l, index) => (
               <ItemRow
@@ -95,11 +95,9 @@ export const Content = () => {
               />
             ))
           ) : (
-            <StyledLoader
-              type="MutatingDots"
-              height={100}
-              width={100}
-            />
+            <div data-testid="spinner">
+              <StyledLoader type="MutatingDots" height={100} width={100} />
+            </div>
           )}
         </Launches>
       </ContentWrapper>

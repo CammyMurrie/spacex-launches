@@ -31,7 +31,7 @@ const Span = styled.div`
 `;
 
 export const ItemRow = ({ number, missionName, launchDate, rocketName }) => (
-  <ItemRowWrapper>
+  <ItemRowWrapper data-testid="launch-entry">
     <NumberTitle>
       <Span size={22}>{`#${number}`}</Span>
       <Span size={18} extraStyles={`padding-left: 20px;`}>

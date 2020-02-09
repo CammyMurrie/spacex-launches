@@ -26,9 +26,9 @@ const Icon = styled.img`
   width: 10px;
 `;
 
-export function ButtonWithIcon({ onClick, onBlur, icon, children, borderRadius }) {
+export function ButtonWithIcon({ onClick, onBlur, icon, children, borderRadius, testId }) {
   return (
-    <Button onClick={onClick} onBlur={onBlur} borderRadius={borderRadius}>
+    <Button data-testid={testId} onClick={onClick} onBlur={onBlur} borderRadius={borderRadius}>
       <span>{children}</span>
       <Icon src={icon} alt="" />
     </Button>
