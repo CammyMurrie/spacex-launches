@@ -35,11 +35,12 @@ export const FilterDropdown = ({ selectedFilter, options, setFilter }) => {
         onClick={() => setOpen(!open)}
         onBlur={() => setOpen(false)}
         icon={select}
+        testId="filter"
       >
         {selectedFilter || "Select a year"}
       </ButtonWithIcon>
       {open && (
-        <Options>
+        <Options data-testid="options">
           <Option
             key="option_1_none_selected"
             role="button"
