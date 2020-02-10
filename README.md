@@ -3,6 +3,8 @@
 - Optimise for screen readers i.e. focusable options on custom dropdown, key press event listeners etc
 - improve image quality by making use of the higher res. assets provided through source tags or media queries and background images.
 - Improve testing coverage where applicable.
+- Implement either pagination or lady loading by making use of the `limit` and `offset` querystring params
+- generate some simple error handling for when the network call returns something other than a 200
 
 
 # Tech Test
